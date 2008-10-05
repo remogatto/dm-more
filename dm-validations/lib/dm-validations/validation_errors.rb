@@ -39,10 +39,7 @@ module DataMapper
       end
 
       def each
-        errors.map.each do |k,v|
-          next if v.blank?
-          yield(v)
-        end
+        errors.map.each { |error| yield(error) }
       end
 
       def empty?
